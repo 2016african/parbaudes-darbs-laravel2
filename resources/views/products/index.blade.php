@@ -25,6 +25,7 @@
                 <td>
                     <a href="{{ route('products.show', $product->id) }}" class="btn btn-view">View</a>
                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-edit">Edit</a>
+                    <a href="{{ route('products.archive', $product->id) }}" class="btn btn-edit">Archive</a>
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
