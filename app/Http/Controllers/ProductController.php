@@ -65,19 +65,20 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
-    {
-        $validated = $request->validate([
-            'name' => 'required',
-            'description' => 'nullable',
-            'price' => 'required|numeric',
-            'category' => 'required|in:electronics,clothing,home,beauty,other',
-        ]);
+    public function update(Request $request, Product $product)
+{
+    $validated = $request->validate([
+        'name' => 'required',
+        'description' => 'nullable',
+        'price' => 'required|numeric',
+        'category' => 'required|in:electronics,clothing,home,beauty,other',
+    ]);
 
-        $product->update($validated);
+    $product->update($validated);
 
-        return redirect()->route('products.show', $product)->with('success', 'Product updated successfully.');
-    }
+    return redirect()->route('products.show', $product)
+        ->with('success', 'Product updated successfully.');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -102,6 +103,5 @@ class ProductController extends Controller
 
         $product->update(['status' => $validated['status']]);
 
-        return $product;
     }
 }
