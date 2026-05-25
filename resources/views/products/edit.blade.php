@@ -5,9 +5,9 @@
     <a href="{{ route('products.index') }}" class="btn btn-back">Back to List</a>
     <br><br>
 
-    <form action="{{ route('products.update') }}" method="POST" style="max-width: 500px;">
-        @csrf
-        @method('PUT')
+    <form action="{{ route('products.update', $product) }}" method="POST">
+    @csrf
+    @method('PUT')
 
         <div class="form-group">
             <label>Name:</label>
