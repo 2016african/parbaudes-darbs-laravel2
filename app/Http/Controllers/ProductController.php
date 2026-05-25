@@ -90,6 +90,13 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 
+     public function archive(Product $product)
+    {
+        $posts = Post::whereNotNull('deleted_at')->get();
+
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+    }
+
 
 
     /**
